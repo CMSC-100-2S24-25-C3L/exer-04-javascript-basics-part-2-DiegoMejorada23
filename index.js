@@ -30,7 +30,7 @@ function addAccount(array) {
         if ((array[0] !== "") && (array[1] !== "") && (array[2] !== "")) {
             if (isEmail(array[2])) {
                 if (array[3] >= 18) {
-                    let data = array[0] + "," + array[1] + "," + array[2] + "," + generateUniqueID(array[0], array[1]);
+                    let data = array[0] + "," + array[1] + "," + array[2] + "," + generateUniqueID(array[0], array[1]) + "\n";
                     
                     try {
                         appendFileSync('user.txt', data);
