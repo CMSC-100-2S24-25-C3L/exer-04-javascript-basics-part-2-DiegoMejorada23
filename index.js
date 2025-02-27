@@ -5,9 +5,11 @@
 // Exer 04: JavaScript Basics Part 2
 // Simulate a register program in JavaScript (functions file)
 
+// Imports
 import { v4 as uuidv4 } from 'uuid';
 import  isEmail  from 'validator/lib/isEmail.js';
 import { appendFileSync } from 'node:fs';
+
 
 function generateUniqueID(firstName, lastName) {
     let uniqueID = "";
@@ -21,7 +23,7 @@ function generateUniqueID(firstName, lastName) {
     }
 
     return uniqueID;
-}
+}// End of function generateUniqueID
 
 
 function addAccount(array) {
@@ -44,6 +46,8 @@ function addAccount(array) {
     }
 
     return false;
-}
+}// End of function addAccount
 
+
+// Exports
 export { addAccount };

@@ -5,8 +5,11 @@
 // Exer 04: JavaScript Basics Part 2
 //  Simulate a register program in JavaScript (tests file)
 
+// Imports
 import { addAccount } from './index.js';
 
+
+// Test cases
 console.log(addAccount(["Alan"]));                                              // Returns false
 
 console.log(addAccount(["Alan", "Turing"]));                                    // Returns false
