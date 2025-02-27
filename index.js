@@ -6,7 +6,8 @@
 // Simulate a register program in JavaScript (functions file)
 
 import { v4 as uuidv4 } from 'uuid';
-//import { validator } from 'validator';
+import { isEmail } from 'validator/lib/isEmail';
+import { appendFileSync } from 'node:fs';
 
 function generateUniqueID(firstName, lastName) {
     let uniqueID = "";
@@ -20,4 +21,27 @@ function generateUniqueID(firstName, lastName) {
     }
 
     return uniqueID;
+}
+
+
+function addAccount(array) {
+    // array = [first name (string), last name (string), email (string), age (number)]
+    if (array.length === 4) {
+        if ((array[0] !== "") && (array[1] !== "") && (array[2] !== "")) {
+            if (validator.isEmail(array[2])) {
+                if (array[3] >= 18) {
+                    let data = array[0] + "," + array[1] + "," + array[2] + "," + generateUniqueID(array[0], array[1]);
+                    
+                    try {
+                        appendFileSync('user.txt', data);
+                        return true;
+                    } catch (err) {
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
+    return false;
 }
